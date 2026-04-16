@@ -1,0 +1,48 @@
+# syntax=docker/dockerfile:1
+
+FROM ghcr.io/linuxserver/baseimage-selkies:debiantrixie
+
+# set version label
+ARG BUILD_DATE
+ARG VERSION
+ARG HELIUM_VERSION
+LABEL build_version="Linuxserver.io version:- ${VERSION} Build-date:- ${BUILD_DATE}"
+LABEL maintainer="thelamer"
+
+# title
+ENV TITLE=Helium \
+    NO_GAMEPAD=true \
+    NO_DECOR=true \
+    PIXELFLUX_WAYLAND=true
+
+RUN \
+  echo "**** add icon ****" && \
+  curl -o \
+    /usr/share/selkies/www/icon.png \
+    https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/helium-logo.png && \
+  echo "**** install packages ****" && \
+  apt-get update && \
+  if [ -z ${HELIUM_VERSION+x} ]; then \
+    HELIUM_VERSION=$(curl -sX GET "https://api.github.com/repos/imputnet/helium-linux/releases/latest" \
+    | awk '/tag_name/{print $4;exit}' FS='[""]'); \
+  fi && \
+  curl -o \
+    /tmp/helium.deb -L \
+    "https://github.com/imputnet/helium-linux/releases/download/${HELIUM_VERSION}/helium-bin_${HELIUM_VERSION}-1_amd64.deb" && \
+  apt install -y \
+    /tmp/helium.deb && \
+  echo "**** cleanup ****" && \
+  apt-get autoclean && \
+  rm -rf \
+    /config/.cache \
+    /var/lib/apt/lists/* \
+    /var/tmp/* \
+    /tmp/*
+
+# add local files
+COPY /root /
+
+# ports and volumes
+EXPOSE 3001
+
+VOLUME /config

@@ -1,0 +1,29 @@
+---
+
+# jenkins variables
+project_name: docker-helium
+external_type: github_stable
+release_type: stable
+release_tag: latest
+ls_branch: master
+build_armhf: false
+repo_vars:
+  - EXT_USER = 'imputnet'
+  - EXT_REPO = 'helium-linux'
+  - BUILD_VERSION_ARG = 'HELIUM_VERSION'
+  - LS_USER = 'linuxserver'
+  - LS_REPO = 'docker-helium'
+  - CONTAINER_NAME = 'helium'
+  - DOCKERHUB_IMAGE = 'linuxserver/helium'
+  - DEV_DOCKERHUB_IMAGE = 'lsiodev/helium'
+  - PR_DOCKERHUB_IMAGE = 'lspipepr/helium'
+  - DIST_IMAGE = 'debian'
+  - MULTIARCH = 'true'
+  - CI = 'true'
+  - CI_WEB = 'true'
+  - CI_PORT = '3001'
+  - CI_SSL = 'true'
+  - CI_DELAY = '120'
+  - CI_DOCKERENV = 'TZ=US/Pacific'
+  - CI_AUTH = 'user:password'
+  - CI_WEBPATH = ''
