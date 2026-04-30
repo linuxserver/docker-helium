@@ -606,7 +606,7 @@ gui-32                                                                        UN
 gui-64                                                                        UNKNOWN                                binary                      
 gui-arm64                                                                     UNKNOWN                                binary                      
 gzip                                                                          1.13-1                                 deb                         
-helium-bin                                                                    0.11.6.1-1                             deb                         
+helium-bin                                                                    0.11.7.1-1                             deb                         
 hicolor-icon-theme                                                            0.18-2                                 deb                         
 hostname                                                                      3.25                                   deb                         
 idna                                                                          3.13                                   python                      
