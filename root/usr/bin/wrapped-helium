@@ -1,10 +1,11 @@
-#!/bin/bash
+#! /bin/bash
 
 BIN=/usr/bin/helium
 
 # Cleanup
 if ! pgrep helium > /dev/null;then
   rm -f $HOME/.config/helium/Singleton*
+  rm -f $HOME/.config/net.imput.helium/Singleton*
 fi
 
 ${BIN} \
