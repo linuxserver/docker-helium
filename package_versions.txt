@@ -580,7 +580,7 @@ gui-64                                                                        UN
 gui-arm64                                                                     UNKNOWN                                binary                      
 gzip                                                                          1.13-1                                 deb                         
 h11                                                                           0.16.0                                 python                      
-helium-bin                                                                    0.14.9.1-1                             deb                         
+helium-bin                                                                    0.15.1.1-1                             deb                         
 hicolor-icon-theme                                                            0.18-2                                 deb                         
 hostname                                                                      3.25                                   deb                         
 httpcore                                                                      1.0.9                                  python                      
