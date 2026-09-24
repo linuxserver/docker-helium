@@ -1,2 +1,2 @@
 #!/bin/bash
-wrapped-helium --enable-features=UseOzonePlatform --ozone-platform=wayland ${HELIUM_CLI}
+wrapped-helium ${HELIUM_CLI}
